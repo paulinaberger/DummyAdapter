@@ -19,8 +19,14 @@ import java.util.List;
 
 public class MyListAdapter extends ArrayAdapter<item> {
     private Context mContext;
+    String[]  mListValues = {"Android", "iPhone", "WindowsMobile",
+            "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
+            "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
+            "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
+            "Android", "iPhone", "WindowsMobile"};
 
     public MyListAdapter(Context context, int resource, item[] objects) {
+
         super(context, resource, objects);
         this.mContext = context;
     }
@@ -34,6 +40,9 @@ public class MyListAdapter extends ArrayAdapter<item> {
 
         TextView textView = (TextView) rowView.findViewById(R.id.tv_body_row_layout);
         textView.setText("Body text of the element in position" + position);
+
+        TextView titleTextView = (TextView) rowView.findViewById(R.id.tv_title_row_layout);
+        titleTextView.setText(this.mListValues[position]);
         return rowView;
 
      }
